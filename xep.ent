@@ -223,7 +223,7 @@ THE SOFTWARE.
 
 <!ENTITY LEGALNOTICE "
 <legal>
-<copyright>This XMPP Extension Protocol is copyright &#169; 1999 &#x2013; 2017 by the <link url='https://xmpp.org/'>XMPP Standards Foundation</link> (XSF).</copyright>
+<copyright>This XMPP Extension Protocol is copyright &#169; 1999 &#x2013; 2018 by the <link url='https://xmpp.org/'>XMPP Standards Foundation</link> (XSF).</copyright>
 <permissions>Permission is hereby granted, free of charge, to any person obtaining a copy of this specification (the &quot;Specification&quot;), to make use of the Specification without restriction, including without limitation the rights to implement the Specification in a software program, deploy the Specification in a network service, and copy, modify, merge, publish, translate, distribute, sublicense, or sell copies of the Specification, and to permit persons to whom the Specification is furnished to do so, subject to the condition that the foregoing copyright notice and this permission notice shall be included in all copies or substantial portions of the Specification. Unless separate permission is granted, modified works that are redistributed shall not contain misleading information regarding the authors, title, number, or publisher of the Specification, and shall not claim endorsement of the modified works by the authors, any organization or project to which the authors belong, or the XMPP Standards Foundation.</permissions>
 <warranty>## NOTE WELL: This Specification is provided on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. ##</warranty>
 <liability>In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall the XMPP Standards Foundation or any author of this Specification be liable for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising from, out of, or in connection with the Specification or the implementation, deployment, or other use of the Specification (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if the XMPP Standards Foundation or such author has been advised of the possibility of such damages.</liability>
@@ -372,6 +372,7 @@ THE SOFTWARE.
 <!ENTITY E.164 "<span class='ref'><link url='http://en.wikipedia.org/wiki/E.164'>ITU E.164</link></span> <note>ITU Recommendation E.164/I.331: The International Public Telecommunication Numbering Plan (1997). This specification is not freely available; a short summary is located at &lt;<link url='http://en.wikipedia.org/wiki/E.164'>http://en.wikipedia.org/wiki/E.164</link>&gt;.</note>" >
 <!ENTITY X.500 "<span class='ref'><link url='http://www.itu.int/rec/T-REC-X.500-200102-I/en'>X.500</link></span> <note>X.500: The Directory: Overview of concepts, models and service &lt;<link url='http://www.itu.int/rec/T-REC-X.500-200102-I/en'>http://www.itu.int/rec/T-REC-X.500-200102-I/en</link>&gt;.</note>" >
 <!ENTITY X.841 "<span class='ref'><link url='http://www.itu.int/rec/T-REC-X.841-200010-I/en'>X.841</link></span> <note>X.841: Security techniques - Security information objects for access control &lt;<link url='http://www.itu.int/rec/T-REC-X.841-200010-I/en'>http://www.itu.int/rec/T-REC-X.841-200010-I/en</link>&gt;.</note>" >
+<!ENTITY BT.601 "<span class='ref'><link url='https://www.itu.int/rec/R-REC-BT.601-7-201103-I/en'>BT.601</link></span> <note>BT.601: Studio encoding parameters of digital television for standard 4:3 and wide screen 16:9 aspect ratios &lt;<link url='https://www.itu.int/rec/R-REC-BT.601-7-201103-I/en'>https://www.itu.int/rec/R-REC-BT.601-7-201103-I/en</link>&gt;</note>">
 
 <!-- some other specs -->
 
@@ -392,7 +393,9 @@ THE SOFTWARE.
 <!ENTITY rhttp "<span class='ref'><link url='http://tools.ietf.org/html/draft-lentczner-rhttp'>Reverse HTTP</link></span> <note>Reverse HTTP &lt;<link url='http://tools.ietf.org/html/draft-lentczner-rhttp'>http://tools.ietf.org/html/draft-lentczner-rhttp</link>&gt;.</note>" >
 <!ENTITY rtf "<span class='ref'><link url='http://msdn.microsoft.com/library/en-us/dnrtfspec/html/rtfspec.asp'>Rich Text Format (RTF)</link></span> <note>Rich Text Format (RTF) Version 1.5 Specification &lt;<link url='http://msdn.microsoft.com/library/en-us/dnrtfspec/html/rtfspec.asp'>http://msdn.microsoft.com/library/en-us/dnrtfspec/html/rtfspec.asp</link>&gt;.</note>" >
 <!ENTITY SDN.801c "<span class='ref'>SDN.801c</span> <note>SDN.801c: Access Control Concept and Mechanism, US National Security Agency, Revision C, 12 May 1999.</note>" >
-<!ENTITY unicode "<span class='ref'>Unicode</span> <note>The Unicode Standard, Version 3.2.0 (The Unicode Consortium, 2000).</note>" >
+<!ENTITY uax9 "<span class='ref'>Unicode Standard Annex #9</span> <note>Unicode Standard Annex #9, &quot;Unicode Bidirectional Algorithm&quot;, edited by Mark Davis, Aharon Lanin, and Andrew Glass. An integral part of The Unicode Standard, &lt;<link url='http://unicode.org/reports/tr9/'>http://unicode.org/reports/tr9/</link>&gt;.</note>" >
+<!ENTITY unicode10 "<span class='ref'>Unicode 10.0.0</span> <note>The Unicode Consortium. The Unicode Standard, Version 10.0.0, (Mountain View, CA: The Unicode Consortium, 2017. ISBN 978-1-936213-16-0) &lt;<link url='https://www.unicode.org/versions/Unicode10.0.0/'>https://www.unicode.org/versions/Unicode10.0.0/</link>&gt;.</note>" >
+<!ENTITY unicode "<span class='ref'>Unicode</span> <note>The Unicode Standard, The Unicode Consortium &lt;<link url='http://www.unicode.org/versions/latest/'>http://www.unicode.org/versions/latest/</link>&gt;.</note>" >
 <!ENTITY wap "<span class='ref'><link url='http://www.wapforum.org/'>Wireless Access Protocol (WAP)</link></span> <note>Wireless Access Protocol (WAP) &lt;<link url='http://www.wapforum.org/'>http://www.wapforum.org/</link>&gt;.</note>" >
 <!ENTITY wv-csp "<span class='ref'><link url='http://www.openmobilealliance.org/tech/affiliates/wv/wvindex.html'>WV Client-Server Protocol v1.1</link></span> <note>Wireless Village Client-Server Protocol v1.1 &lt;<link url='http://www.openmobilealliance.org/tech/affiliates/wv/wvindex.html'>http://www.openmobilealliance.org/tech/affiliates/wv/wvindex.html</link>&gt;.</note>" >
 <!ENTITY xfn "<span class='ref'><link url='http://gmpg.org/xfn/index'>XHTML Friends Network (XFN)</link></span> <note>XHTML Friends Network (XFN) &lt;<link url='http://gmpg.org/xfn/index'>http://gmpg.org/xfn/index</link>&gt;.</note>" >
@@ -678,6 +681,7 @@ THE SOFTWARE.
 <!ENTITY rfc7564 "<span class='ref'><link url='http://tools.ietf.org/html/rfc7564'>RFC 7564</link></span> <note>RFC 7564: PRECIS Framework: Preparation, Enforcement, and Comparison of Internationalized Strings in Application Protocols &lt;<link url='http://tools.ietf.org/html/rfc7564'>http://tools.ietf.org/html/rfc7564</link>&gt;.</note>" >
 <!ENTITY rfc7700 "<span class='ref'><link url='http://tools.ietf.org/html/rfc7700'>RFC 7700</link></span> <note>RFC 7700: Preparation, Enforcement, and Comparison of Internationalized Strings Representing Nicknames&lt;<link url='http://tools.ietf.org/html/rfc7700'>http://tools.ietf.org/html/rfc7700</link>&gt;.</note>" >
 <!ENTITY rfc7712 "<span class='ref'><link url='http://tools.ietf.org/html/rfc7712'>RFC 7712</link></span> <note>RFC 7712: Domain Name Associations (DNA) in the Extensible Messaging and Presence Protocol (XMPP)&lt;<link url='http://tools.ietf.org/html/rfc7712'>http://tools.ietf.org/html/rfc7712</link>&gt;.</note>" >
+<!ENTITY rfc7764 "<span class='ref'><link url='http://tools.ietf.org/html/rfc7764'>RFC 7764</link></span> <note>RFC 7764: Guidance on Markdown: Design Philosophies, Stability Strategies, and Select Registrations &lt;<link url='http://tools.ietf.org/html/rfc7764'>http://tools.ietf.org/html/rfc7764</link>&gt;.</note>" >
 
 <!-- Internet-Drafts -->
 
@@ -757,9 +761,9 @@ IANA Service Location Protocol, Version 2 (SLPv2) Templates</link></span> <note>
   <author>
     <firstname>Peter</firstname>
     <surname>Saint-Andre</surname>
-    <email>peter@andyet.net</email>
-    <jid>stpeter@stpeter.im</jid>
-    <uri>https://stpeter.im/</uri>
+    <email>xsf@stpeter.im</email>
+    <jid>peter@jabber.org</jid>
+    <uri>http://stpeter.im/</uri>
   </author>
 " >
 <!ENTITY dizzyd "
@@ -1055,6 +1059,22 @@ IANA Service Location Protocol, Version 2 (SLPv2) Templates</link></span> <note>
     <surname>Schmaus</surname>
     <email>flo@geekplace.eu</email>
     <jid>flo@geekplace.eu</jid>
+  </author>
+" >
+<!ENTITY paulschaub "
+  <author>
+    <firstname>Paul</firstname>
+    <surname>Schaub</surname>
+    <email>vanitasvitae@riseup.net</email>
+    <jid>vanitasvitae@jabberhead.tk</jid>
+  </author>
+" >
+<!ENTITY jonaswielicki "
+  <author>
+    <firstname>Jonas</firstname>
+    <surname>Wielicki</surname>
+    <email>jonas@wielicki.name</email>
+    <jid>jonas@wielicki.name</jid>
   </author>
 " >
 
@@ -1446,3 +1466,7 @@ IANA Service Location Protocol, Version 2 (SLPv2) Templates</link></span> <note>
 <!ENTITY xep0388 "<span class='ref'><link url='https://xmpp.org/extensions/xep-0388.html'>Extensible SASL Profile (XEP-0388)</link></span> <note>XEP-0388: Extensible SASL Profile &lt;<link url='https://xmpp.org/extensions/xep-0388.html'>https://xmpp.org/extensions/xep-0388.html</link>&gt;.</note>" >
 <!ENTITY xep0389 "<span class='ref'><link url='https://xmpp.org/extensions/xep-0389.html'>Extensible In-Band Registration (XEP-0389)</link></span> <note>XEP-0389: Extensible In-Band Registration &lt;<link url='https://xmpp.org/extensions/xep-0389.html'>https://xmpp.org/extensions/xep-0389.html</link>&gt;.</note>" >
 <!ENTITY xep0390 "<span class='ref'><link url='https://xmpp.org/extensions/xep-0390.html'>Entity Capabilities 2.0 (XEP-0390)</link></span> <note>XEP-0390: Entity Capabilities 2.0 &lt;<link url='https://xmpp.org/extensions/xep-0390.html'>https://xmpp.org/extensions/xep-0390.html</link>&gt;.</note>" >
+<!ENTITY xep0391 "<span class='ref'><link url='https://xmpp.org/extensions/xep-0391.html'>Jingle Encrypted Transports (XEP-0391)</link></span> <note>XEP-0391: Jingle Encrypted Transports &lt;<link url='https://xmpp.org/extensions/xep-0391.html'>https://xmpp.org/extensions/xep-0391.html</link>&gt;.</note>" >
+<!ENTITY xep0392 "<span class='ref'><link url='https://xmpp.org/extensions/xep-0392.html'>Consistent Color Generation (XEP-0392)</link></span> <note>XEP-0392: Consistent Color Generation &lt;<link url='https://xmpp.org/extensions/xep-0392.html'>https://xmpp.org/extensions/xep-0392.html</link>&gt;.</note>" >
+<!ENTITY xep0393 "<span class='ref'><link url='https://xmpp.org/extensions/xep-0393.html'>Message Styling (XEP-0393)</link></span> <note>XEP-0393: Message Styling &lt;<link url='https://xmpp.org/extensions/xep-0393.html'>https://xmpp.org/extensions/xep-0393.html</link>&gt;.</note>" >
+<!ENTITY xep0394 "<span class='ref'><link url='https://xmpp.org/extensions/xep-0394.html'>Message Markup (XEP-0394)</link></span> <note>XEP-0394: Message Markup &lt;<link url='https://xmpp.org/extensions/xep-0394.html'>https://xmpp.org/extensions/xep-0394.html</link>&gt;.</note>" >

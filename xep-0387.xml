@@ -2,31 +2,37 @@
 <!DOCTYPE xep SYSTEM 'xep.dtd' [
 <!ENTITY % ents SYSTEM 'xep.ent'>
 %ents;
-<!ENTITY component "<note>Support can be enabled via an external component or an internal server module/plugin.</note>">
+<!ENTITY component "<note>Support can be enabled via an external component or an internal server module/plugin. If claiming compliance using such an addition, the necessary components/modules/plugins MUST be detailed.</note>">
 <!ENTITY usecases "<note>Support for the Entity Use Cases and Occupant Use Cases is REQUIRED; support for the remaining use cases is RECOMMENDED.</note>">
 <!ENTITY onlyone "<note>Only one of the recommended providers must be implemented for compliance.</note>">
 <!ENTITY nocli "<note>Not required for command line or terminal based interfaces.</note>">
+<!ENTITY avatar "<note>While 'User Avatars' is more modern, 'vCard-Based Avatars' is more widely deployed. Although it is suggested that to maximise interoperability with existing software a client fully supports both it is sufficient to claim compliance with this suite if the support for 'vCard-Based Avatars' is read-only.</note>">
+<!ENTITY pubsubjid "<note>While 'Personal Eventing Protocol' does not require all the features of 'Publish-Subscribe' to be available on the users' JIDs, and nor does this suite, it is desirable for this to be the case and it is expected that this will a requirement of future Compliance Suites.</note>">
 ]>
 <?xml-stylesheet type='text/xsl' href='xep.xsl'?>
 <xep>
   <header>
-    <title>XMPP Compliance Suites 2017</title>
+    <title>XMPP Compliance Suites 2018</title>
     <abstract>
-      This document defines XMPP protocol compliance levels for 2017.
+      This document defines XMPP protocol compliance levels.
     </abstract>
     &LEGALNOTICE;
     <number>0387</number>
-    <status>Experimental</status>
+    <status>Draft</status>
+    <lastcall>2017-12-21</lastcall>
+    <lastcall>2017-11-15</lastcall>
     <type>Standards Track</type>
     <sig>Standards</sig>
     <dependencies>
       <spec>RFC 6120</spec>
       <spec>RFC 6121</spec>
-      <spec>RFC 6122</spec>
       <spec>RFC 7395</spec>
       <spec>RFC 7590</spec>
+      <spec>RFC 7622</spec>
       <spec>XEP-0030</spec>
       <spec>XEP-0045</spec>
+      <spec>XEP-0048</spec>
+      <spec>XEP-0049</spec>
       <spec>XEP-0084</spec>
       <spec>XEP-0085</spec>
       <spec>XEP-0114</spec>
@@ -36,6 +42,7 @@
       <spec>XEP-0191</spec>
       <spec>XEP-0198</spec>
       <spec>XEP-0206</spec>
+      <spec>XEP-0223</spec>
       <spec>XEP-0249</spec>
       <spec>XEP-0280</spec>
       <spec>XEP-0313</spec>
@@ -46,8 +53,45 @@
       <spec>XEP-0375</spec>
     </supersedes>
     <supersededby/>
-    <shortname>CS2017</shortname>
+    <shortname>CS2018</shortname>
     &sam;
+    &jonaswielicki;
+    <revision>
+      <version>1.0.0</version>
+      <date>2018-01-25</date>
+      <initials>XEP Editor (jwi)</initials>
+      <remark><p>Move to Draft as per Council vote on 2018-01-24.</p></remark>
+    </revision>
+    <revision>
+      <version>0.4</version>
+      <date>2018-01-25</date>
+      <initials>kis</initials>
+      <remark><p>Address recent feedback</p></remark>
+    </revision>
+    <revision>
+      <version>0.3.3</version>
+      <date>2018-01-23</date>
+      <initials>XEP Editor (jwi)</initials>
+      <remark><p>Add Jonas as author.</p><p>Move back to experimental.</p></remark>
+    </revision>
+    <revision>
+      <version>0.3.2</version>
+      <date>2018-01-18</date>
+      <initials>XEP Editor (ssw, revision added by jwi)</initials>
+      <remark><p>Rejected by council</p></remark>
+    </revision>
+    <revision>
+      <version>0.3.1</version>
+      <date>2017-11-04</date>
+      <initials>ssw</initials>
+      <remark><p>Update RFC 6122 references to RFC 7622</p></remark>
+    </revision>
+    <revision>
+      <version>0.3.0</version>
+      <date>2017-11-01</date>
+      <initials>ssw</initials>
+      <remark><p>Bump year to 2018</p></remark>
+    </revision>
     <revision>
       <version>0.2.0</version>
       <date>2017-02-10</date>
@@ -74,10 +118,9 @@
     <p>
       The &XSF; defines protocol suites for the purpose of compliance testing
       and software certification.
-      This document specifies the 2017 compliance levels for XMPP clients and
-      servers; it is hoped that this document will advance the state of the art,
-      and provide guidence and eventual certification to XMPP client and server
-      authors.
+      This document specifies compliance levels for XMPP clients and servers; it
+      is hoped that this document will advance the state of the art, and provide
+      guidance and eventual certification to XMPP client and server authors.
       Unless explicitly noted, support for the listed specifications is REQUIRED
       for compliance purposes.
       A feature is considered supported if all comma separated feature providers
@@ -101,7 +144,7 @@
           <td align='center'>&#10003;</td>
           <td align='center'>&#10003;</td>
           <td align='center'>&#10003;</td>
-          <td>&rfc6120;, &rfc6122;</td>
+          <td>&rfc6120;, &rfc7622;</td>
         </tr>
         <tr>
           <td><strong>TLS</strong></td>
@@ -139,7 +182,7 @@
           <td><strong>Event publishing</strong></td>
           <td align='center'>&#10005;</td>
           <td align='center'>&#10005;</td>
-          <td align='center'>&#10003;</td>
+          <td align='center'>&#10003;&pubsubjid;</td>
           <td align='center'>&#10003;</td>
           <td>&xep0163;</td>
         </tr>
@@ -194,10 +237,18 @@
         <tr>
           <td><strong>User Avatars</strong></td>
           <td align='center'>N/A</td>
-          <td align='center'>&#10003;&nocli;</td>
+          <td align='center'>&#10003;&nocli;&avatar;</td>
           <td align='center'>N/A</td>
+          <td align='center'>&#10003;&nocli;&avatar;</td>
+          <td>&xep0084;&xep0153;</td>
+        </tr>
+        <tr>
+          <td><strong>vcard-temp</strong></td>
+          <td align='center'>&#10003;</td>
           <td align='center'>&#10003;&nocli;</td>
-          <td>&xep0084;</td>
+          <td align='center'>&#10003;</td>
+          <td align='center'>&#10003;&nocli;</td>
+          <td>&xep0054;</td>
         </tr>
         <tr>
           <td><strong>Outbound Message Synchronization</strong></td>
@@ -230,6 +281,22 @@
           <td align='center'>&#10003;&component;</td>
           <td align='center'>&#10003;</td>
           <td>&xep0048;</td>
+        </tr>
+        <tr>
+          <td><strong>Persistent Storage of Private Data via PubSub</strong></td>
+          <td align='center'>&#10005;</td>
+          <td align='center'>&#10005;</td>
+          <td align='center'>&#10003;&component;</td>
+          <td align='center'>&#10003;</td>
+          <td>&xep0223;</td>
+        </tr>
+        <tr>
+          <td><strong>Private XML Storage</strong></td>
+          <td align='center'>&#10005;</td>
+          <td align='center'>&#10005;</td>
+          <td align='center'>&#10003;&component;</td>
+          <td align='center'>&#10003;</td>
+          <td>&xep0049;</td>
         </tr>
         <tr>
           <td><strong>Session Resumption</strong></td>

@@ -10,7 +10,7 @@
   <abstract>This specification defines an XMPP protocol extension for initiating a data stream between any two XMPP entities. The protocol includes the ability to include metadata about the stream and provides a pluggable framework so that various profiles of stream initiation can be defined for particular use cases (such as file transfer).</abstract>
   &LEGALNOTICE;
   <number>0095</number>
-  <status>Draft</status>
+  <status>Deprecated</status>
   <type>Standards Track</type>
   <sig>Standards</sig>
   <dependencies>
@@ -18,7 +18,7 @@
     <spec>XEP-0030</spec>
   </dependencies>
   <supersedes/>
-  <supersededby/>
+  <supersededby><spec>XEP-0166</spec></supersededby>
   <shortname>si</shortname>
   <schemaloc>
     <url>http://www.xmpp.org/schemas/si.xsd</url>
@@ -27,6 +27,12 @@
   &temas;
   &linuxwolf;
   &reatmon;
+  <revision>
+    <version>1.2</version>
+    <date>2017-11-29</date>
+    <initials>XEP Editor (ssw)</initials>
+    <remark>Deprecated by vote of the council.</remark>
+  </revision>
   <revision>
     <version>1.1</version>
     <date>2004-04-13</date>

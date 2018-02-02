@@ -12,7 +12,7 @@ from datetime import datetime
 
 import xml.etree.ElementTree as etree
 
-from xeplib import Status, Action, load_xepinfos
+from xeplib import Status, Action, load_xepinfos, choose
 
 
 DESCRIPTION = """\
@@ -55,6 +55,44 @@ proposal as an official XEP."""
 SUBJECT_PROTO_TEMPLATE = "Proposed XMPP Extension: {info[title]}"
 
 
+MAIL_LAST_CALL_TEMPLATE = """\
+This message constitutes notice of a Last Call for comments on \
+XEP-{info[number]:04d}.
+
+Title: {info[title]}
+Abstract:
+{info[abstract]}
+
+URL: {url}
+
+This Last Call begins today and shall end at the close of business on \
+{info[last_call]}.
+
+Please consider the following questions during this Last Call and send your \
+feedback to the standards@xmpp.org discussion list:
+
+1. Is this specification needed to fill gaps in the XMPP protocol stack or to \
+clarify an existing protocol?
+
+2. Does the specification solve the problem stated in the introduction and \
+requirements?
+
+3. Do you plan to implement this specification in your code? If not, why not?
+
+4. Do you have any security concerns related to this specification?
+
+5. Is the specification accurate and clearly written?
+
+Your feedback is appreciated!
+"""
+
+STALENOTE = """
+
+Note: The information in the XEP list at https://xmpp.org/extensions/ is \
+updated by a separate automated process and may be stale at the time this \
+email is sent. The XEP documents linked herein are up-to-date."""
+
+
 MAIL_NONPROTO_TEMPLATE = """\
 Version {info[last_revision][version]} of XEP-{info[number]:04d} \
 ({info[title]}) has been released.
@@ -65,7 +103,7 @@ Abstract:
 Changelog:
 {changelog}
 
-URL: {url}"""
+URL: {url}"""+STALENOTE
 
 
 MAIL_DEFER_TEMPLATE = """\
@@ -77,8 +115,7 @@ Abstract:
 URL: {url}
 
 If and when a new revision of this XEP is published, its status will be \
-changed back to Experimental.
-"""
+changed back to Experimental."""+STALENOTE
 
 
 SUBJECT_NONPROTO_TEMPLATE = \
@@ -99,8 +136,17 @@ def diff_infos(old, new):
             return Action.PROTO
         elif old["status"] is None:
             return Action.NEW
+        elif (old["status"] == Status.DEFERRED and
+              new["status"] == Status.EXPERIMENTAL):
+            return Action.UPDATE
+        elif (old["status"] == Status.PROPOSED and
+              new["status"] == Status.EXPERIMENTAL):
+            return None
         else:
             return Action.fromstatus(new["status"])
+    elif (old["status"] == Status.PROPOSED and
+            old["last_call"] != new["last_call"]):
+        return Action.LAST_CALL
 
     old_version = old.get("last_revision", {}).get("version")
     new_version = new.get("last_revision", {}).get("version")
@@ -168,6 +214,8 @@ def make_nonproto_mail(action, info):
     body_template = MAIL_NONPROTO_TEMPLATE
     if action == Action.DEFER:
         body_template = MAIL_DEFER_TEMPLATE
+    elif action == Action.LAST_CALL:
+        body_template = MAIL_LAST_CALL_TEMPLATE
 
     mail = email.message.EmailMessage()
     mail["Subject"] = SUBJECT_NONPROTO_TEMPLATE.format(**kwargs)
@@ -229,30 +277,6 @@ def interactively_extend_smtp_config(config):
             password = getpass.getpass()
         config.set("smtp", "password", password)
     config.set("smtp", "from", from_)
-
-
-def choose(prompt, options, *,
-           eof=EOFError,
-           keyboard_interrupt=KeyboardInterrupt):
-    while True:
-        try:
-            choice = input(prompt).strip()
-        except EOFError:
-            if eof is EOFError:
-                raise
-            return eof
-        except KeyboardInterrupt:
-            if keyboard_interrupt is KeyboardInterrupt:
-                raise
-            return keyboard_interrupt
-
-        if choice not in options:
-            print("invalid choice. please enter one of: {}".format(
-                ", ".join(map(str, options))
-            ))
-            continue
-
-        return choice
 
 
 def make_smtpconn(config):
@@ -384,7 +408,7 @@ def main():
 
     for added_xep in added_xeps:
         old_info = dummy_info(added_xep)
-        new_info = new_accepted[common_xep]
+        new_info = new_accepted[added_xep]
 
         action = diff_infos(old_info, new_info)
         if action is not None:
