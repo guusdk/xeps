@@ -27,20 +27,10 @@ jobs:
         if: steps.changed-xeps.outputs.any_changed == 'true'
         run: |
           sudo apt-get install -y libxml2-utils
-          result=Success
+          result=0
           for xep in "${{ steps.changed-xeps.outputs.all_changed_files }}"; do
             if ! tools/validate-xep0001-conformance.sh "$xep"; then
-              result=Failure
-              echo "validate_$xep=success" >> $GITHUB_OUTPUT
-            else
-              echo "validate_$xep=failure" >> $GITHUB_OUTPUT
+              result=1
             fi
           done
-          echo "result=$result" >> $GITHUB_OUTPUT
-
-      - uses: mshick/add-pr-comment@v2
-        if: steps.changed-xeps.outputs.any_changed == 'true'
-        with:
-          issue: ${{ steps.validation.outputs.result }}
-          message: |
-            Automated XEP validation result: ${{ steps.validation.outputs.result }}
+          exit $result
