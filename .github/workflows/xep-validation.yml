@@ -8,13 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Test changed-files
+    name: Validate any XEP changes
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Detect changes to XEP files.
+      - name: Detect changes to XEP files
         id: changed-xeps
         uses: tj-actions/changed-files@v34
         with:
@@ -22,10 +22,11 @@ jobs:
             xep-*.xml
             inbox/*
 
-      - name: Run step if any file(s) in the docs folder change.
+      - name: Run step if any file(s) in the docs folder change
         id: validation
         if: steps.changed-xeps.outputs.any_changed == 'true'
         run: |
+          sudo apt-get install -y libxml2-util
           result=Success
           for xep in "${{ steps.changed-xeps.outputs.all_changed_files }}"; do
             if ! tools/validate-xep0001-conformance.sh "$xep"; then
