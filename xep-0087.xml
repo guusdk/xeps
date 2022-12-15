@@ -13,7 +13,7 @@
   <status>Experimental</status>
   <type>Standards Track</type>
   <sig>Standards</sig>
-  <approver>Board</approver>
+  <approver>Council</approver>
   <dependencies><spec>XEP-0030</spec></dependencies>
   <supersedes/>
   <supersededby><spec>XEP-0095</spec></supersededby>
